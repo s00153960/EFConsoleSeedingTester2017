@@ -59,6 +59,7 @@
     <Compile Include="ClubModel\Club.cs" />
     <Compile Include="ClubModel\ClubContext.cs" />
     <Compile Include="ClubModel\ClubEvent.cs" />
+    <Compile Include="ClubModel\Course.cs" />
     <Compile Include="ClubModel\Members.cs" />
     <Compile Include="ClubModel\Student.cs" />
     <Compile Include="Migrations\201711231802374_Initial Clubs.cs" />
@@ -71,6 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Migrations\Courses.csv" />
     <None Include="packages.config" />
     <EmbeddedResource Include="Migrations\TestStudents.csv" />
   </ItemGroup>
