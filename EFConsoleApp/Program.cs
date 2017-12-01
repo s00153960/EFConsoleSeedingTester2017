@@ -31,7 +31,7 @@ namespace EFConsoleApp
         private static void SeedClub(ClubContext context)
         {
             #region club 1
-            context.Clubs.AddOrUpdate(c => new { c.ClubName, c.clubMembers },
+            context.Clubs.AddOrUpdate(c => c.ClubName,
 
             new Club
             {
@@ -58,7 +58,7 @@ namespace EFConsoleApp
             });
             #endregion
             #region club 2
-            context.Clubs.AddOrUpdate(c => new { c.ClubName, c.clubMembers },
+            context.Clubs.AddOrUpdate(c => c.ClubName,
             new Club
             {
                 ClubName = "The Chess Club",
