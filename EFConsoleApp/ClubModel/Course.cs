@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace EFConsoleApp.ClubModel
 {
     [Table("Course")]
-    class Course
+   public class Course
     {
        [Key]
        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
