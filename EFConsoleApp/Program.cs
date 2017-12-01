@@ -46,9 +46,11 @@ namespace EFConsoleApp
                         context.Courses.AddOrUpdate(c =>
                                 new
                                 {
+
                                     CourseCode = dataItem.CourseCode,
                                     CourseName = dataItem.CourseName,
                                     Year = dataItem.Year
+
                                 });
                     }
 
