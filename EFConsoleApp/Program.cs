@@ -10,6 +10,7 @@ using System.Data.Entity.Migrations;
 using System.Reflection;
 using System.IO;
 using CsvHelper;
+using EFConsoleApp.ClubModel;
 
 namespace EFConsoleApp
 {
@@ -22,9 +23,39 @@ namespace EFConsoleApp
         {
             using (ClubContext context = new ClubContext())
             {
-                SeedClub(context);
-                SeedStudents(context);
+             //   SeedClub(context);
+             //   SeedStudents(context);
+                SeedCourses(context);
             }
+        }
+
+        private static void SeedCourses(ClubContext context)
+        {
+            #region
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            string resourceName = "EFConsoleApp.Migrations.Courses.csv";
+            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+            {
+                using (StreamReader reader = new StreamReader(stream, Encoding.UTF8))
+                {
+                    CsvReader csvReader = new CsvReader(reader);
+                    csvReader.Configuration.HasHeaderRecord = false;
+                    var courseData = csvReader.GetRecords<CourseDataImport>().ToArray();
+                    foreach (var dataItem in courseData)
+                    {
+                        context.Courses.AddOrUpdate(c =>
+                                new
+                                {
+                                    CourseCode = dataItem.CourseCode,
+                                    CourseName = dataItem.CourseName,
+                                    Year = dataItem.Year
+                                });
+                    }
+
+                }
+                context.SaveChanges();
+            }
+            #endregion
         }
 
         // This is debuggable
@@ -84,6 +115,7 @@ namespace EFConsoleApp
 
         public static void SeedStudents(ClubContext context)
         {
+            #region
             Assembly assembly = Assembly.GetExecutingAssembly();
             string resourceName = "EFConsoleApp.Migrations.TestStudents.csv";
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
@@ -94,9 +126,11 @@ namespace EFConsoleApp
                     csvReader.Configuration.HasHeaderRecord = false;
                     var testStudents = csvReader.GetRecords<Student>().ToArray();
                     context.Students.AddOrUpdate(s => s.StudentID, testStudents);
+                    
                 }
+                context.SaveChanges();
             }
-            context.SaveChanges();
+            #endregion
         }
 
         public static List<Member> getMembers(ClubContext context )

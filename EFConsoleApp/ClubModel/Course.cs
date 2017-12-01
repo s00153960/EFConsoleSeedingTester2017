@@ -17,10 +17,10 @@ namespace EFConsoleApp.ClubModel
         public int CourseID { get; set; }
 
         [Display(Name = "Course Code")]
-        public String CourseCode { get; set; }
+        public string CourseCode { get; set; }
 
         [Display(Name = "Course Year")]
-        public String Year { get; set; }
+        public string Year { get; set; }
 
         [Display(Name = "Course Name")]
         public string CourseName { get; set; }

@@ -1,4 +1,4 @@
-namespace EFConsoleApp.Migrations
+namespace Migrations
 {
     using System;
     using System.Data.Entity;

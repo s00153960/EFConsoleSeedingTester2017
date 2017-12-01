@@ -60,11 +60,16 @@
     <Compile Include="ClubModel\ClubContext.cs" />
     <Compile Include="ClubModel\ClubEvent.cs" />
     <Compile Include="ClubModel\Course.cs" />
+    <Compile Include="ClubModel\CourseDataImport.cs" />
     <Compile Include="ClubModel\Members.cs" />
     <Compile Include="ClubModel\Student.cs" />
     <Compile Include="Migrations\201711231802374_Initial Clubs.cs" />
     <Compile Include="Migrations\201711231802374_Initial Clubs.Designer.cs">
       <DependentUpon>201711231802374_Initial Clubs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712011028568_mig1.cs" />
+    <Compile Include="Migrations\201712011028568_mig1.Designer.cs">
+      <DependentUpon>201712011028568_mig1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
@@ -74,6 +79,9 @@
     <None Include="App.config" />
     <None Include="Migrations\Courses.csv" />
     <None Include="packages.config" />
+    <EmbeddedResource Include="Migrations\201712011028568_mig1.resx">
+      <DependentUpon>201712011028568_mig1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\TestStudents.csv" />
   </ItemGroup>
   <ItemGroup>
